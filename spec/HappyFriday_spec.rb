@@ -6,7 +6,7 @@ RSpec.describe HappyFriday do
   end
 
   context 'judge HappyFriday' do
-    it 'If that day is HappyFriday' do
+    it 'If the last Friday of the month is a weekday, return true' do
       date = Date.new(2022, 5, 27)
       expect(HappyFriday.happyfriday?(date)).to eq(true)
     end
@@ -18,13 +18,13 @@ RSpec.describe HappyFriday do
   end
 
   context 'get HappyFriday' do
-    it 'normal' do
+    it 'Normal month.' do
       date = Date.new(2022, 5)
       predicted_date = Date.new(2022, 5, 27)
       expect(HappyFriday.get_happy_friday(date)).to eq(predicted_date)
     end
 
-    it 'If the last Friday of the month is a holiday, get HappyFriday' do
+    it 'Months when the last Friday of the month is a holiday.' do
       target_date = Date.new(2022, 4)
       predicted_date = Date.new(2022, 4, 22)
       expect(HappyFriday.get_happy_friday(date)).to eq(predicted_date)
