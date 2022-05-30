@@ -7,8 +7,8 @@ require 'holiday_jp'
 module HappyFriday
   class Error < StandardError; end
 
-  def self.happyfriday?(date)
-    happy_friday == HappyFriday.get_happy_friday(date)
+  def self.happyfriday?(target_date)
+    target_date == HappyFriday.get_happy_friday(target_date)
   end
 
   def self.get_happy_friday(date)
