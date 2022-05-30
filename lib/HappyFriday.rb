@@ -20,7 +20,7 @@ module HappyFriday
     when 5..6
       before_friday_days = last_of_month.wday - 5
     else
-      raise 'ERR: Unpredictable day of the week.'
+      raise 'Unpredictable day of the week.'
     end
 
     last_friday = last_of_month.ago(before_friday_days.days)
@@ -29,9 +29,7 @@ module HappyFriday
       last_friday = last_friday.ago(1.week)
     end
 
-    if last_friday.month != last_of_month.month
-      raise 'HappyFriday is no month!'
-    end
+    return false if last_friday.month != last_of_month.month
 
     last_friday
   end
