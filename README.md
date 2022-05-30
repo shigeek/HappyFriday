@@ -14,9 +14,16 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
+### HappyFriday decision
+true or false returns.
 ```rb
 HappyFriday.happyfriday?(Time.now)
-# => true or false returns
+```
+
+### Getting HappyFriday
+You can get a HappyFriday for that month.
+```rb
+HappyFriday.get_happy_friday(Time.now)
 ```
 
 ## Development
