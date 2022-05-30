@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe Holasoynaoki do
+RSpec.describe HappyFriday do
   it "yoyo" do
-  end
-
-  it "hola" do
-    expect(false).to eq(true)
+    date = Date.new(2022, 5, 27)
+    expect(HappyFriday.happyfriday?(date)).to eq(true)
   end
 end
