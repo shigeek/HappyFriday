@@ -1,6 +1,6 @@
 # HappyFriday
 
-Gem that can determine HappyFriday.
+This gem is capable of obtaining and determining HappyFriday.
 
 ## Installation
 
