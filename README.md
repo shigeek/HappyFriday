@@ -15,7 +15,6 @@ If bundler is not being used to manage dependencies, install the gem by executin
 ## Usage
 
 ### HappyFriday decision
-true or false returns.
 ```rb
 date = Date.new(2022, 5, 3)
 HappyFriday.happyfriday?(date) # false
