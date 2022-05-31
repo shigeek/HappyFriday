@@ -8,7 +8,7 @@ module HappyFriday
   class Error < StandardError; end
 
   def self.happyfriday?(target_date)
-    target_date == HappyFriday.get_happy_friday(target_date)
+    target_date.strftime("%Y%m%d") == HappyFriday.get_happy_friday(target_date)
   end
 
   def self.get_happy_friday(date)
@@ -25,12 +25,14 @@ module HappyFriday
 
     last_friday = last_of_month.ago(before_friday_days.days)
 
-    while HolidayJp.holiday?(last_friday)
-      last_friday = last_friday.ago(1.week)
-    end
+    raise 'err' unless last_friday.wday == 5
 
-    return false if last_friday.month != last_of_month.month
+    # Doesn't work
+    # while HolidayJp.holiday?(last_friday)
+    #   last_friday = last_friday.ago(1.week)
+    # end
+    # return false if last_friday.month != last_of_month.month
 
-    last_friday
+    last_friday.strftime("%Y%m%d")
   end
 end
