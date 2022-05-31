@@ -28,7 +28,7 @@ HappyFriday.happyfriday?(date) # true
 You can get a HappyFriday for that month.
 ```rb
 date = Date.new(2022, 5, 1)
-HappyFriday.get_happy_friday(date) # 20220527
+HappyFriday.get_happy_friday(date) # 2022-05-27 00:00:00 +0900
 ```
 
 ## Development
