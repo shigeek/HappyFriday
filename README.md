@@ -17,13 +17,18 @@ If bundler is not being used to manage dependencies, install the gem by executin
 ### HappyFriday decision
 true or false returns.
 ```rb
-HappyFriday.happyfriday?(Time.now)
+date = Date.new(2022, 5, 3)
+HappyFriday.happyfriday?(date) # false
+
+date = Date.new(2022, 5, 27)
+HappyFriday.happyfriday?(date) # true
 ```
 
 ### Getting HappyFriday
 You can get a HappyFriday for that month.
 ```rb
-HappyFriday.get_happy_friday(Time.now)
+date = Date.new(2022, 5, 1)
+HappyFriday.get_happy_friday(date) # 20220527
 ```
 
 ## Development
