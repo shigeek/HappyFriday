@@ -8,7 +8,7 @@ module HappyFriday
   class Error < StandardError; end
 
   def self.happyfriday?(target_date)
-    target_date.strftime("%Y%m%d") == HappyFriday.get_happy_friday(target_date)
+    target_date.strftime("%Y%m%d") == HappyFriday.get_happy_friday(target_date).strftime("%Y%m%d")
   end
 
   def self.get_happy_friday(date)
@@ -33,6 +33,6 @@ module HappyFriday
     # end
     # return false if last_friday.month != last_of_month.month
 
-    last_friday.strftime("%Y%m%d")
+    last_friday
   end
 end
