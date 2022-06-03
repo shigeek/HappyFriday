@@ -27,7 +27,7 @@ module HappyFriday
 
     raise 'err' unless last_friday.wday == 5
 
-    while
+    loop do
       if HolidayJp.holiday?(last_friday)
         last_friday -= 1
       else
