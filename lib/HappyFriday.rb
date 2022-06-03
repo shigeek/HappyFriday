@@ -23,15 +23,17 @@ module HappyFriday
       raise 'Unpredictable day of the week.'
     end
 
-    last_friday = last_of_month.ago(before_friday_days.days)
+    last_friday = last_of_month - before_friday_days.days
 
     raise 'err' unless last_friday.wday == 5
 
-    # Doesn't work
-    # while HolidayJp.holiday?(last_friday)
-    #   last_friday = last_friday.ago(1.week)
-    # end
-    # return false if last_friday.month != last_of_month.month
+    loop do
+      if HolidayJp.holiday?(last_friday)
+        last_friday -= 1
+      else
+        break
+      end
+    end
 
     last_friday
   end
