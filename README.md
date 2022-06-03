@@ -30,11 +30,12 @@ You can get a HappyFriday for that month.
 ```rb
 date = Date.new(2022, 5, 1)
 HappyFriday.get_happy_friday(date)
-=> 2022-05-27 00:00:00 +0900
+=> Fri, 27 May 2022
 
-date = Date.new(2022, 6, 1)
+# If the last Friday of the month is a holiday, the day before becomes HappyFriday.
+date = Date.new(2022, 4)
 HappyFriday.get_happy_friday(date)
-=> 2022-06-24 00:00:00 +0900
+=> Thu, 28 Apr 2022
 ```
 
 ## Development
