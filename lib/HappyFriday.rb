@@ -23,7 +23,7 @@ module HappyFriday
       raise 'Unpredictable day of the week.'
     end
 
-    last_friday -= before_friday_days.days
+    last_friday = last_of_month - before_friday_days.days
 
     raise 'err' unless last_friday.wday == 5
 
