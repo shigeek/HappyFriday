@@ -28,14 +28,9 @@ module HappyFriday
     raise 'err' unless last_friday.wday == 5
 
     while
-      unless HolidayJp.holiday?(last_friday)
-        break
-      end
-
-      last_friday -= 1
-
-      # Stop when you get to the previous month, just in case.
-      if last_friday.month != last_of_month.month
+      if HolidayJp.holiday?(last_friday)
+        last_friday -= 1
+      else
         break
       end
     end
