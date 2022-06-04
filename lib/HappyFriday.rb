@@ -25,8 +25,6 @@ module HappyFriday
 
     last_friday = last_of_month - before_friday_days.days
 
-    raise 'err' unless last_friday.wday == 5
-
     loop do
       if HolidayJp.holiday?(last_friday)
         last_friday -= 1
@@ -34,6 +32,8 @@ module HappyFriday
         break
       end
     end
+
+    raise 'err' unless last_friday.wday == 5
 
     last_friday
   end
