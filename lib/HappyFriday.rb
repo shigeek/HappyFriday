@@ -7,11 +7,11 @@ require 'holiday_jp'
 module HappyFriday
   class Error < StandardError; end
 
-  def self.happyfriday?(target_date)
-    target_date.strftime("%Y%m%d") == HappyFriday.get_happy_friday(target_date).strftime("%Y%m%d")
+  def self.happy_friday?(target_date)
+    target_date.strftime("%Y%m%d") == HappyFriday.get_next_happy_friday(target_date).strftime("%Y%m%d")
   end
 
-  def self.get_happy_friday(date)
+  def self.get_next_happy_friday(date)
     last_of_month = Date.new(date.year, date.month, -1)
 
     case last_of_month.wday
