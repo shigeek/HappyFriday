@@ -18,15 +18,21 @@ RSpec.describe HappyFriday do
   end
 
   context 'get HappyFriday' do
-    it 'Normal month.' do
+    it 'normal' do
       target_date = Date.new(2022, 5, 1)
-      predicted_date = Date.new(2022, 5, 27).strftime("%Y%m%d")
-      expect(HappyFriday.get_next_happy_friday(target_date).strftime("%Y%m%d")).to eq(predicted_date)
+      predicted_date = Date.new(2022, 5, 27)
+      expect(HappyFriday.get_next_happy_friday(target_date)).to eq(predicted_date)
     end
 
     it 'Months when the last Friday of the month is a holiday.' do
       target_date = Date.new(2022, 4)
       predicted_date = Date.new(2022, 4, 28)
+      expect(HappyFriday.get_next_happy_friday(target_date)).to eq(predicted_date)
+    end
+
+    it 'If HappyFriday of that month has passed, get next month.' do
+      target_date = Date.new(2022, 4, 30)
+      predicted_date = Date.new(2022, 5, 27)
       expect(HappyFriday.get_next_happy_friday(target_date)).to eq(predicted_date)
     end
   end
