@@ -17,24 +17,24 @@ If bundler is not being used to manage dependencies, install the gem by executin
 ### HappyFriday decision
 ```rb
 date = Date.new(2022, 5, 3)
-HappyFriday.happyfriday?(date)
+HappyFriday.happy_friday?(date)
 => false
 
 date = Date.new(2022, 5, 27)
-HappyFriday.happyfriday?(date)
+HappyFriday.happy_friday?(date)
 => true
 ```
 
-### Getting HappyFriday
+### Get the next HappyFriday
 You can get a HappyFriday for that month.
 ```rb
-date = Date.new(2022, 5, 1)
-HappyFriday.get_happy_friday(date)
+date = Date.new(2022, 5)
+HappyFriday.get_next_happy_friday(date)
 => Fri, 27 May 2022
 
 # If the last Friday of the month is a holiday, the day before becomes HappyFriday.
 date = Date.new(2022, 4)
-HappyFriday.get_happy_friday(date)
+HappyFriday.get_next_happy_friday(date)
 => Thu, 28 Apr 2022
 ```
 
