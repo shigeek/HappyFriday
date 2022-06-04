@@ -36,6 +36,7 @@ module HappyFriday
     end
 
     # If HappyFriday of that month has passed, get next month.
+    # TODO: refactoring
     if target_date > last_friday
       next_month = last_friday + 1.month
       happy_friday = HappyFriday.get_next_happy_friday(Date.new(next_month.year, next_month.month))
