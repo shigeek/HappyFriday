@@ -36,6 +36,11 @@ HappyFriday.get_next_happy_friday(date)
 date = Date.new(2022, 4)
 HappyFriday.get_next_happy_friday(date)
 => Thu, 28 Apr 2022
+
+# If HappyFriday of that month has passed, get next month.
+date = Date.new(2022, 4, 30)
+HappyFriday.get_next_happy_friday(date)
+=> Fri, 27 May 2022
 ```
 
 ## Development
