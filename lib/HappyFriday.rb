@@ -38,10 +38,12 @@ module HappyFriday
     # If HappyFriday of that month has passed, get next month.
     if target_date > last_friday
       date = last_friday + 1.month
-      date = Date.new(date.yaer, date.month)
-      HappyFriday.get_next_happy_friday(date)
+      majino_date = Date.new(date.year, date.month)
+      happy_friday = HappyFriday.get_next_happy_friday(majino_date)
+    else
+      happy_friday = last_friday
     end
 
-    last_friday
+    happy_friday
   end
 end
