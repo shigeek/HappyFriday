@@ -8,7 +8,7 @@ module HappyFriday
   class Error < StandardError; end
 
   def self.happy_friday?(target_date)
-    target_date.strftime("%Y%m%d") == HappyFriday.get_next_happy_friday(target_date).strftime("%Y%m%d")
+    HappyFriday.get_next_happy_friday(target_date) == target_date
   end
 
   def self.get_next_happy_friday(target_date)
@@ -36,10 +36,10 @@ module HappyFriday
     end
 
     # If HappyFriday of that month has passed, get next month.
-    # TODO: refactoring
     if target_date > last_friday
       next_month = last_friday + 1.month
-      happy_friday = HappyFriday.get_next_happy_friday(Date.new(next_month.year, next_month.month))
+      target_date = Date.new(next_month.year, next_month.month)
+      happy_friday = HappyFriday.get_next_happy_friday(target_date)
     else
       happy_friday = last_friday
     end
