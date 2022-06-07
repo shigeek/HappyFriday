@@ -8,7 +8,7 @@ module HappyFriday
   class Error < StandardError; end
 
   def self.happy_friday?(target_date)
-    target_date.strftime("%Y%m%d") == HappyFriday.get_next_happy_friday(target_date).strftime("%Y%m%d")
+    target_date == HappyFriday.get_next_happy_friday(target_date)
   end
 
   def self.get_next_happy_friday(target_date)
