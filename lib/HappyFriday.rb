@@ -37,8 +37,8 @@ module HappyFriday
 
     # If HappyFriday of that month has passed, get next month.
     if target_date > last_friday
-      next_month = last_friday + 1.month
-      beginning_of_target_month = Date.new(next_month.year, next_month.month)
+      target_month = last_friday + 1.month
+      beginning_of_target_month = Date.new(target_month.year, target_month.month)
       happy_friday = HappyFriday.get_next_happy_friday(beginning_of_target_month)
     else
       happy_friday = last_friday
