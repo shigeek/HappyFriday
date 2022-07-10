@@ -3,11 +3,12 @@
 require_relative "HappyFriday/version"
 require 'active_support/all'
 require 'holiday_jp'
+require 'date'
 
-module HappyFriday
+class HappyFriday < Date
   class Error < StandardError; end
 
-  def self.happy_friday?(target_date)
+  def self(target_date)
     target_date.strftime("%Y%m%d") == HappyFriday.get_next_happy_friday(target_date).strftime("%Y%m%d")
   end
 
