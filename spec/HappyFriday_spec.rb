@@ -7,33 +7,25 @@ RSpec.describe HappyFriday do
 
   context 'judge HappyFriday' do
     it 'If the last Friday of the month is a weekday, return true' do
-      date = Date.new(2022, 5, 27)
-      expect(HappyFriday.happy_friday?(date)).to eq(true)
+      expect(Date.new(2022, 5, 27).happy_friday?).to eq(true)
     end
 
     it 'If the last Friday of the month is a holiday, return false' do
-      date = Date.new(2022, 4, 29)
-      expect(HappyFriday.happy_friday?(date)).to eq(false)
+      expect(Date.new(2022, 4, 29).happy_friday?).to eq(false)
     end
   end
 
   context 'get HappyFriday' do
     it 'normal' do
-      target_date = Date.new(2022, 5, 1)
-      predicted_date = Date.new(2022, 5, 27)
-      expect(HappyFriday.get_next_happy_friday(target_date)).to eq(predicted_date)
+      expect(Date.new(2022, 5, 1).get_next_happy_friday).to eq(Date.new(2022, 5, 27))
     end
 
     it 'Months when the last Friday of the month is a holiday.' do
-      target_date = Date.new(2022, 4)
-      predicted_date = Date.new(2022, 4, 28)
-      expect(HappyFriday.get_next_happy_friday(target_date)).to eq(predicted_date)
+      expect(Date.new(2022, 4).get_next_happy_friday).to eq(Date.new(2022, 4, 28))
     end
 
     it 'If HappyFriday of that month has passed, get next month.' do
-      target_date = Date.new(2022, 4, 30)
-      predicted_date = Date.new(2022, 5, 27)
-      expect(HappyFriday.get_next_happy_friday(target_date)).to eq(predicted_date)
+      expect(Date.new(2022, 4, 30).get_next_happy_friday).to eq(Date.new(2022, 5, 27))
     end
   end
 end

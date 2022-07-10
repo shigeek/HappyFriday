@@ -5,15 +5,15 @@ require 'active_support/all'
 require 'holiday_jp'
 require 'date'
 
-class HappyFriday < Date
+module HappyFriday
   class Error < StandardError; end
 
-  def self.happy_friday?(target_date)
-    target_date.strftime("%Y%m%d") == HappyFriday.get_next_happy_friday(target_date).strftime("%Y%m%d")
+  def happy_friday?
+    self == self.get_next_happy_friday
   end
 
-  def self.get_next_happy_friday(target_date)
-    last_of_month = Date.new(target_date.year, target_date.month, -1)
+  def get_next_happy_friday
+    last_of_month = self.end_of_month
 
     case last_of_month.wday
     when 0..4
@@ -28,7 +28,7 @@ class HappyFriday < Date
 
     raise 'err' unless last_friday.wday == 5
 
-    loop do
+    100.times do
       if HolidayJp.holiday?(last_friday)
         last_friday -= 1
       else
@@ -37,14 +37,16 @@ class HappyFriday < Date
     end
 
     # If HappyFriday of that month has passed, get next month.
-    # TODO: refactoring
-    if target_date > last_friday
-      next_month = last_friday + 1.month
-      happy_friday = HappyFriday.get_next_happy_friday(Date.new(next_month.year, next_month.month))
+    if self > last_friday
+      happy_friday = self.next_month.beginning_of_month.get_next_happy_friday
     else
       happy_friday = last_friday
     end
 
     happy_friday
   end
+end
+
+class Date
+  include HappyFriday
 end
