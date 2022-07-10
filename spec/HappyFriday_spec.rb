@@ -16,7 +16,7 @@ RSpec.describe HappyFriday do
   end
 
   context 'Get HappyFriday' do
-    it 'normal' do
+    it 'If the last Friday of the month is a weekday' do
       expect(Date.new(2022, 5, 1).get_next_happy_friday).to eq(Date.new(2022, 5, 27))
     end
 
