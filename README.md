@@ -1,6 +1,7 @@
 # HappyFriday
 
 This gem is capable of obtaining and determining HappyFriday.
+Extend to Date class.
 
 ## Installation
 
@@ -16,30 +17,25 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ### HappyFriday decision
 ```rb
-date = Date.new(2022, 5, 3)
-HappyFriday.happy_friday?(date)
+Date.new(2022, 5, 3).happy_friday?
 => false
 
-date = Date.new(2022, 5, 27)
-HappyFriday.happy_friday?(date)
+Date.new(2022, 5, 27).happy_friday?
 => true
 ```
 
 ### Get the next HappyFriday
 You can get a HappyFriday for that month.
 ```rb
-date = Date.new(2022, 5)
-HappyFriday.get_next_happy_friday(date)
+Date.new(2022, 5).get_next_happy_friday
 => Fri, 27 May 2022
 
 # If the last Friday of the month is a holiday, the day before becomes HappyFriday.
-date = Date.new(2022, 4)
-HappyFriday.get_next_happy_friday(date)
+Date.new(2022, 4).get_next_happy_friday
 => Thu, 28 Apr 2022
 
 # If HappyFriday of that month has passed, get next month.
-date = Date.new(2022, 4, 30)
-HappyFriday.get_next_happy_friday(date)
+Date.new(2022, 4, 30).get_next_happy_friday
 => Fri, 27 May 2022
 ```
 
