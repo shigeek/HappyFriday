@@ -5,26 +5,26 @@ RSpec.describe HappyFriday do
     expect(HappyFriday::VERSION).not_to be nil
   end
 
-  context 'judge HappyFriday' do
-    it 'If the last Friday of the month is a weekday, return true' do
+  context 'Judge HappyFriday' do
+    it 'If the last Friday of the month is a weekday' do
       expect(Date.new(2022, 5, 27).happy_friday?).to eq(true)
     end
 
-    it 'If the last Friday of the month is a holiday, return false' do
+    it 'If the last Friday of the month is a holiday' do
       expect(Date.new(2022, 4, 29).happy_friday?).to eq(false)
     end
   end
 
-  context 'get HappyFriday' do
+  context 'Get HappyFriday' do
     it 'normal' do
       expect(Date.new(2022, 5, 1).get_next_happy_friday).to eq(Date.new(2022, 5, 27))
     end
 
-    it 'Months when the last Friday of the month is a holiday.' do
+    it 'If the last Friday of the month is a holiday' do
       expect(Date.new(2022, 4).get_next_happy_friday).to eq(Date.new(2022, 4, 28))
     end
 
-    it 'If HappyFriday of that month has passed, get next month.' do
+    it 'If HappyFriday of that month has passed' do
       expect(Date.new(2022, 4, 30).get_next_happy_friday).to eq(Date.new(2022, 5, 27))
     end
   end
