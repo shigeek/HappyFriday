@@ -3,7 +3,6 @@
 require_relative "HappyFriday/version"
 require 'active_support/all'
 require 'holiday_jp'
-require 'date'
 
 module HappyFriday
   class Error < StandardError; end
