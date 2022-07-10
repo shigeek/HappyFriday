@@ -8,7 +8,7 @@ require 'date'
 class HappyFriday < Date
   class Error < StandardError; end
 
-  def self(target_date)
+  def self.happy_friday?(target_date)
     target_date.strftime("%Y%m%d") == HappyFriday.get_next_happy_friday(target_date).strftime("%Y%m%d")
   end
 
