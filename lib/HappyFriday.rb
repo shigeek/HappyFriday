@@ -20,7 +20,7 @@ module HappyFriday
     when 5..6
       before_friday_days = last_of_month.wday - 5
     else
-      raise 'Unpredictable day of the week.'
+      raise 'ERR: Unpredictable day of the week.'
     end
 
     last_friday = last_of_month - before_friday_days.days
